@@ -18,6 +18,8 @@ class Client extends Model {
 
     protected $dates = ["birth_date"];
 
+    protected $with = ["user", "account"];
+
     public static $rules = [
         // Validation rules
     ];

@@ -27,11 +27,6 @@ $router->group(['prefix' => 'auth'], function() use ($router) {
 /**
  * Routes for resource business-category
  */
-$router->get('business-category', 'BusinessCategoryController@all');
-$router->get('business-category/{id}', 'BusinessCategoryController@get');
-$router->post('business-category', 'BusinessCategoryController@add');
-$router->put('business-category/{id}', 'BusinessCategoryController@put');
-$router->delete('business-category/{id}', 'BusinessCategoryController@remove');
 
 $router->group(['middleware' => 'auth:api'], function($router) {
     $router->get('business', 'BusinessController@all');
@@ -39,6 +34,20 @@ $router->group(['middleware' => 'auth:api'], function($router) {
     $router->post('business', 'BusinessController@add');
     $router->put('business/{id}', 'BusinessController@put');
     $router->delete('business/{id}', 'BusinessController@remove');
+
+    $router->get('business-category', 'BusinessCategoryController@all');
+    $router->get('business-category/{id}', 'BusinessCategoryController@get');
+    $router->post('business-category', 'BusinessCategoryController@add');
+    $router->put('business-category/{id}', 'BusinessCategoryController@put');
+    $router->delete('business-category/{id}', 'BusinessCategoryController@remove');
+
+    $router->get('client', 'ClientController@all');
+    $router->get('client/{id}', 'ClientController@get');
+    $router->post('client', 'ClientController@add');
+    $router->put('client/{id}', 'ClientController@put');
+    $router->delete('client/{id}', 'ClientController@remove');
+
+
 });
 
 $router->get('business-account', 'BusinessAccountController@all');
@@ -47,11 +56,6 @@ $router->post('business-account', 'BusinessAccountController@add');
 $router->put('business-account/{id}', 'BusinessAccountController@put');
 $router->delete('business-account/{id}', 'BusinessAccountController@remove');
 
-$router->get('client', 'ClientController@all');
-$router->get('client/{id}', 'ClientController@get');
-$router->post('client', 'ClientController@add');
-$router->put('client/{id}', 'ClientController@put');
-$router->delete('client/{id}', 'ClientController@remove');
 
 $router->get('client-account', 'ClientAccountController@all');
 $router->get('client-account/{id}', 'ClientAccountController@get');
