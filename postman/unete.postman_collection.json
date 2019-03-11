@@ -1,0 +1,274 @@
+{
+	"id": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+	"name": "unete",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"name": "auth",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"order": [
+				"46f7d167-777f-015d-c92b-95c167d33bbb",
+				"53b30c09-82aa-e675-664e-ae4a6f6dcaef"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "32a11610-0a47-45e7-8f9d-92a4f0bdb2be"
+		},
+		{
+			"name": "business",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"order": [
+				"39d612d9-55c2-a982-9296-9c2f08159d55"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "3d8e63ee-b095-4182-7926-6464d3f2c760"
+		},
+		{
+			"name": "category",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"order": [
+				"ca54d226-08bb-6b6c-ff3f-5da256e712e3"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "13828935-26f5-77a4-da4d-ba096cceac9c"
+		},
+		{
+			"name": "client",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"order": [
+				"ef9af6f2-e038-8f15-5fb6-3f701558f607"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "ec3b865d-5985-2d9d-ec5f-c4ad24f84c59"
+		}
+	],
+	"folders_order": [
+		"32a11610-0a47-45e7-8f9d-92a4f0bdb2be",
+		"3d8e63ee-b095-4182-7926-6464d3f2c760",
+		"13828935-26f5-77a4-da4d-ba096cceac9c",
+		"ec3b865d-5985-2d9d-ec5f-c4ad24f84c59"
+	],
+	"timestamp": 1551905995392,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "39d612d9-55c2-a982-9296-9c2f08159d55",
+			"headers": "Authorization: {{TOKEN}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{TOKEN}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{API_URL}}/business",
+			"folder": "3d8e63ee-b095-4182-7926-6464d3f2c760",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1551907205997,
+			"name": "List",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"responses": []
+		},
+		{
+			"id": "46f7d167-777f-015d-c92b-95c167d33bbb",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{API_URL}}/auth/login",
+			"folder": "32a11610-0a47-45e7-8f9d-92a4f0bdb2be",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "email",
+					"value": "harris.shaniya@upton.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "secret",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1552191512088,
+			"name": "Login",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"responses": []
+		},
+		{
+			"id": "53b30c09-82aa-e675-664e-ae4a6f6dcaef",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{API_URL}}/auth/register",
+			"folder": "32a11610-0a47-45e7-8f9d-92a4f0bdb2be",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "Alejandro",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "lastname",
+					"value": "Exposito Alvarez",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "alecoexposito@gmail.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "phone",
+					"value": "59838844",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "birth_date",
+					"value": "12/11/1984",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "secret",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1552242249506,
+			"name": "Register",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"responses": []
+		},
+		{
+			"id": "ca54d226-08bb-6b6c-ff3f-5da256e712e3",
+			"headers": "Authorization: {{TOKEN}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{TOKEN}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{API_URL}}/business",
+			"folder": "13828935-26f5-77a4-da4d-ba096cceac9c",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1551907205997,
+			"name": "List",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"responses": []
+		},
+		{
+			"id": "ef9af6f2-e038-8f15-5fb6-3f701558f607",
+			"headers": "Authorization: {{TOKEN}}\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{TOKEN}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{API_URL}}/business",
+			"folder": "ec3b865d-5985-2d9d-ec5f-c4ad24f84c59",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1551907205997,
+			"name": "List",
+			"description": "",
+			"collectionId": "3e8d2a95-ee06-f780-8cf3-8e4caf8e1c7f",
+			"responses": [],
+			"isFromCollection": true,
+			"collectionRequestId": "ca54d226-08bb-6b6c-ff3f-5da256e712e3"
+		}
+	]
+}
