@@ -9,6 +9,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Client;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -28,6 +31,7 @@ class AuthController extends Controller {
     }
 
     public function login(Request $request) {
+
         $this->validate($request, [
             'email' => 'required|max:255',
             'password' => 'required',
@@ -35,11 +39,6 @@ class AuthController extends Controller {
 
         try {
 
-            // $user = User::where('email', '=', 'sam@mail.com')->first();
-
-            // if (!$token = $this->jwt->fromUser($user)) {
-            //     return response()->json(['user_not_found'], 404);
-            // }
             if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
                 return response()->json(['user_not_found'], 404);
             }
@@ -57,6 +56,40 @@ class AuthController extends Controller {
         }
 
         return response()->json(compact('token'));
+    }
+
+    public function register(Request $request) {
+        $this->validate($request, [
+            'email' => 'required|max:255',
+            'name' => 'required',
+            'lastname' => 'required',
+            'phone' => 'required',
+            'birth_date' => 'required'
+        ]);
+
+        $params = $request->all();
+        $birthDate = Carbon::createFromFormat('d/m/Y', $params['birth_date']);
+
+        $options = [
+            'cost' => 11
+        ];
+        $pass = password_hash($params['password'], PASSWORD_BCRYPT, $options);
+        $client = new Client([
+            'phone' => $params['phone'],
+            'birth_date' => $birthDate,
+        ]);
+        $client->save();
+        $client->user()->create([
+            'name' => $params['name'],
+            'lastname' => $params['lastname'],
+            'email' => $params['email'],
+            'userable_id' => $client->id,
+            'userable_type' => Client::class,
+            'password' => $pass
+        ]);
+        $client->save();
+
+
     }
 
 }

@@ -25,7 +25,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname', 'email',
+        'name', 'lastname', 'email', 'password'
     ];
 
     /**
@@ -33,9 +33,9 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-    ];
+//    protected $hidden = [
+//        'password',
+//    ];
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
