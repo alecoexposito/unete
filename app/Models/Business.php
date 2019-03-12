@@ -1,5 +1,6 @@
 <?php namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Business extends Model {
@@ -28,4 +29,5 @@ class Business extends Model {
     public function categories() {
         return $this->belongsToMany("App\Models\BusinessCategory", "business_business_category", 'business_id', 'category_id')->withTimestamps();
     }
+
 }

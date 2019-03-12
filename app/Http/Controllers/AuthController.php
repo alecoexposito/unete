@@ -89,7 +89,6 @@ class AuthController extends Controller {
         ]);
         $client->save();
 
-
     }
 
 }

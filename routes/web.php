@@ -30,6 +30,7 @@ $router->group(['prefix' => 'auth'], function() use ($router) {
  */
 
 $router->group(['middleware' => 'auth:api'], function($router) {
+    $router->post('business/has-changed', 'BusinessController@hasChanged');
     $router->get('business', 'BusinessController@all');
     $router->get('business/{id}', 'BusinessController@get');
     $router->post('business', 'BusinessController@add');
