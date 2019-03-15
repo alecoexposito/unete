@@ -17,6 +17,7 @@ class CreateBusinessesTable extends Migration
             $table->increments('id');
             $table->string('name', 40);
             $table->string('description');
+            $table->string('image')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

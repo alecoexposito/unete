@@ -8,6 +8,9 @@ use Illuminate\Http\Response;
 
 class BusinessController extends Controller {
 
+    /**
+     * @var Business MODEL
+     */
     const MODEL = "App\Models\Business";
 
     use RESTActions;
@@ -25,8 +28,6 @@ class BusinessController extends Controller {
         $resp = $count > 0 ? true : false;
 
         return $this->respond(Response::HTTP_OK, ['has_changed' => $resp]);
-
-
     }
 
 }
