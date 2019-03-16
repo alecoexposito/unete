@@ -45,7 +45,7 @@ $factory->define(App\Models\BusinessCategory::class, function (Faker\Generator $
 });
 
 $factory->define(App\Models\Business::class, function (Faker\Generator $faker) {
-    $image = $faker->image('public/uploads', 640, 480, null, false);
+    $image = $faker->image('public/uploads/business', 640, 480, null, false);
     return [
         'name' => $faker->company,
         'description' => $faker->sentence,
@@ -65,5 +65,14 @@ $factory->define(App\Models\Dependence::class, function (Faker\Generator $faker)
         'name' => 'Dependence 1',
         'description' => 'Just a description',
         'main' => true
+    ];
+});
+
+$factory->define(App\Models\Advertisement::class, function (Faker\Generator $faker) {
+    $image = $faker->image('public/uploads/advertisement', 640, 480, null, false);
+    return [
+        'title' => $faker->company,
+        'description' => $faker->sentence,
+        'image' => $image
     ];
 });

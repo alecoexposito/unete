@@ -50,6 +50,13 @@ $router->group(['middleware' => 'auth:api'], function($router) {
     $router->put('client/{id}', 'ClientController@put');
     $router->delete('client/{id}', 'ClientController@remove');
 
+    $router->post('advertisement/has-changed', 'AdvertisementController@hasChanged');
+    $router->get('advertisement', 'AdvertisementController@all');
+    $router->get('advertisement/{id}', 'AdvertisementController@get');
+    $router->post('advertisement', 'AdvertisementController@add');
+    $router->put('advertisement/{id}', 'AdvertisementController@put');
+    $router->delete('advertisement/{id}', 'AdvertisementController@remove');
+
 
 });
 
