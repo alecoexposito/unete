@@ -194,12 +194,51 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{API_URL}}/business",
+							"raw": "{{API_URL}}/business-category",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
-								"business"
+								"business-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "has-changed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "updated_at",
+									"value": "2019-03-15 18:52:17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/business-category/has-changed",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"business-category",
+								"has-changed"
 							]
 						}
 					},

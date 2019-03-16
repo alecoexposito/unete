@@ -37,6 +37,7 @@ $router->group(['middleware' => 'auth:api'], function($router) {
     $router->put('business/{id}', 'BusinessController@put');
     $router->delete('business/{id}', 'BusinessController@remove');
 
+    $router->post('business-category/has-changed', 'BusinessCategoryController@hasChanged');
     $router->get('business-category', 'BusinessCategoryController@all');
     $router->get('business-category/{id}', 'BusinessCategoryController@get');
     $router->post('business-category', 'BusinessCategoryController@add');
