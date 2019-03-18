@@ -88,6 +88,9 @@ class AuthController extends Controller {
             'password' => $pass
         ]);
         $client->save();
+        $token = $this->jwt->attempt($request->only('email', 'password'));
+
+        return response()->json(compact('token'));
 
     }
 
