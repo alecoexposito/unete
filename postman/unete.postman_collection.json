@@ -334,12 +334,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{API_URL}}/business",
+							"raw": "{{API_URL}}/client",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
-								"business"
+								"client"
 							]
 						}
 					},
