@@ -64,11 +64,10 @@ class AuthController extends Controller {
             'name' => 'required',
             'lastname' => 'required',
             'phone' => 'required',
-            'birth_date' => 'required'
         ]);
 
         $params = $request->all();
-        $birthDate = Carbon::createFromFormat('d/m/Y', $params['birth_date']);
+        $birthDate = Carbon::createFromFormat('Y-m-d', $params['birth_date']);
 
         $options = [
             'cost' => 11

@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class AdvertisementSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the advertisement seeds.
      *
      * @return void
      */
