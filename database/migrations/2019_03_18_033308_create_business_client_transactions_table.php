@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransactionsTable extends Migration
+class CreateBusinessClientTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('raf_transactions', function (Blueprint $table) {
+        Schema::create('raf_business_client_transactions', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->unsignedInteger('client_account_id');
-            $table->unsignedInteger('business_account_id');
-            $table->foreign('client_account_id')
-                ->references('id')
-                ->on('raf_client_accounts')
-                ->onDelete('cascade');
-            $table->foreign('business_account_id')
+            $table->unsignedInteger('dependence_account_id');
+            $table->foreign('dependence_account_id')
                 ->references('id')
                 ->on('raf_business_accounts')
+                ->onDelete('cascade');
+            $table->unsignedInteger('client_account_id');
+            $table->foreign('client_account_id')
+                ->references('id')
+                ->on('raf_business_client_accounts')
                 ->onDelete('cascade');
             $table->unsignedInteger('visit_id')->nullable();
             $table->foreign('visit_id')
@@ -33,8 +32,8 @@ class CreateTransactionsTable extends Migration
 
             $table->string('ticket');
             $table->float('amount');
+
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -45,6 +44,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('raf_transactions');
+        Schema::dropIfExists('business_client_transactions');
     }
 }

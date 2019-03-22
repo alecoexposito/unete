@@ -14,6 +14,8 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
 {
     use Authenticatable, Authorizable, SoftDeletes;
 
+    protected  $token;
+
     public function userable()
     {
         return $this->morphTo();
@@ -27,6 +29,17 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
     protected $fillable = [
         'name', 'lastname', 'email', 'password'
     ];
+
+    protected $appends = ['token'];
+
+    public function getTokenAttribute() {
+        return $this->token;
+    }
+
+    public function setTokenAttribute($value) {
+        echo($value);
+        $this->token = $value;
+    }
 
     /**
      * The attributes excluded from the model's JSON form.

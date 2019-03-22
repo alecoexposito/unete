@@ -54,8 +54,12 @@ class AuthController extends Controller {
         } catch (JWTException $e) {
             return response()->json(['token_absent' => $e->getMessage()], 500);
         }
+        $user = User::where('email', $request->input('email'))->first();
+//        $user->setToken($token);
+        $userType = $user->userable;
+        $userType->user->token = $token;
 
-        return response()->json(compact('token'));
+        return response()->json(['user' => $userType]);
     }
 
     public function register(Request $request) {
@@ -88,8 +92,8 @@ class AuthController extends Controller {
         ]);
         $client->save();
         $token = $this->jwt->attempt($request->only('email', 'password'));
-
-        return response()->json(compact('token'));
+        $client->user->token = $token;
+        return response()->json(['client' => $client]);
 
     }
 

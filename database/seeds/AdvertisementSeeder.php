@@ -2,15 +2,13 @@
 
 use Illuminate\Database\Seeder;
 
-class AdvertisementSeeder extends Seeder
-{
+class AdvertisementSeeder extends Seeder {
     /**
      * Run the advertisement seeds.
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
         factory(App\Models\Advertisement::class, 10)->create();
     }
 }
