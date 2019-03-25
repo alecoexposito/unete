@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 class AdvertisementSeeder extends Seeder {
+
     /**
      * Run the advertisement seeds.
      *
