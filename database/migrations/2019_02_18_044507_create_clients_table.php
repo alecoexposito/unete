@@ -16,7 +16,7 @@ class CreateClientsTable extends Migration
         Schema::create('raf_clients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('phone');
-            $table->date('birth_date');
+            $table->date('birth_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

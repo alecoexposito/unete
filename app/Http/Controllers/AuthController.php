@@ -13,6 +13,7 @@ use App\Models\Client;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -57,9 +58,9 @@ class AuthController extends Controller {
         $user = User::where('email', $request->input('email'))->first();
 //        $user->setToken($token);
         $userType = $user->userable;
-        $userType->user->token = $token;
+        //       $userType->user->token = $token;
 
-        return response()->json(['user' => $userType]);
+        return response()->json(['client' => $userType, 'token' => $token]);
     }
 
     public function register(Request $request) {
@@ -71,7 +72,7 @@ class AuthController extends Controller {
         ]);
 
         $params = $request->all();
-        $birthDate = Carbon::createFromFormat('Y-m-d', $params['birth_date']);
+        $birthDate = isset($params['birth_date']) && !empty($params['birth_date']) ? Carbon::createFromFormat('Y-m-d', $params['birth_date']) : null;
 
         $options = [
             'cost' => 11
@@ -92,8 +93,9 @@ class AuthController extends Controller {
         ]);
         $client->save();
         $token = $this->jwt->attempt($request->only('email', 'password'));
-        $client->user->token = $token;
-        return response()->json(['client' => $client]);
+        //$client->user->token = $token;
+        $client->user = $client->user;
+        return response()->json(['client' => $client, 'token'=>$token]);
 
     }
 
