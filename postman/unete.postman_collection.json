@@ -23,7 +23,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "harris.shaniya@upton.com",
+									"value": "dane.schamberger@little.net",
 									"type": "text"
 								},
 								{
@@ -61,7 +61,7 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Alejandro",
+									"value": "Alejandro3",
 									"type": "text"
 								},
 								{
@@ -71,7 +71,7 @@
 								},
 								{
 									"key": "email",
-									"value": "alecoexposito@gmail.com",
+									"value": "alecoexposito3@gmail.com",
 									"type": "text"
 								},
 								{
@@ -81,7 +81,7 @@
 								},
 								{
 									"key": "birth_date",
-									"value": "12/11/1984",
+									"value": "1984-02-24",
 									"type": "text"
 								},
 								{
@@ -137,8 +137,11 @@
 				},
 				{
 					"name": "has-changed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
@@ -162,13 +165,19 @@
 							]
 						},
 						"url": {
-							"raw": "{{API_URL}}/business/has-changed",
+							"raw": "{{API_URL}}/business/has-changed?updated_at=2019-03-08 18:52:17",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"business",
 								"has-changed"
+							],
+							"query": [
+								{
+									"key": "updated_at",
+									"value": "2019-03-08 18:52:17"
+								}
 							]
 						}
 					},
@@ -207,8 +216,11 @@
 				},
 				{
 					"name": "has-changed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
@@ -232,13 +244,19 @@
 							]
 						},
 						"url": {
-							"raw": "{{API_URL}}/advertisement/has-changed",
+							"raw": "{{API_URL}}/advertisement/has-changed?updated_at=2019-03-08 18:52:17",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"advertisement",
 								"has-changed"
+							],
+							"query": [
+								{
+									"key": "updated_at",
+									"value": "2019-03-08 18:52:17"
+								}
 							]
 						}
 					},
@@ -277,8 +295,11 @@
 				},
 				{
 					"name": "has-changed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
@@ -302,13 +323,19 @@
 							]
 						},
 						"url": {
-							"raw": "{{API_URL}}/business-category/has-changed",
+							"raw": "{{API_URL}}/business-category/has-changed?updated_at=2019-03-15 18:52:17",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"business-category",
 								"has-changed"
+							],
+							"query": [
+								{
+									"key": "updated_at",
+									"value": "2019-03-15 18:52:17"
+								}
 							]
 						}
 					},

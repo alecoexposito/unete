@@ -30,14 +30,14 @@ $router->group(['prefix' => 'auth'], function() use ($router) {
  */
 
 $router->group(['middleware' => 'auth:api'], function($router) {
-    $router->post('business/has-changed', 'BusinessController@hasChanged');
+    $router->get('business/has-changed', 'BusinessController@hasChanged');
     $router->get('business', 'BusinessController@all');
     $router->get('business/{id}', 'BusinessController@get');
     $router->post('business', 'BusinessController@add');
     $router->put('business/{id}', 'BusinessController@put');
     $router->delete('business/{id}', 'BusinessController@remove');
 
-    $router->post('business-category/has-changed', 'BusinessCategoryController@hasChanged');
+    $router->get('business-category/has-changed', 'BusinessCategoryController@hasChanged');
     $router->get('business-category', 'BusinessCategoryController@all');
     $router->get('business-category/{id}', 'BusinessCategoryController@get');
     $router->post('business-category', 'BusinessCategoryController@add');
@@ -50,7 +50,7 @@ $router->group(['middleware' => 'auth:api'], function($router) {
     $router->put('client/{id}', 'ClientController@put');
     $router->delete('client/{id}', 'ClientController@remove');
 
-    $router->post('advertisement/has-changed', 'AdvertisementController@hasChanged');
+    $router->get('advertisement/has-changed', 'AdvertisementController@hasChanged');
     $router->get('advertisement', 'AdvertisementController@all');
     $router->get('advertisement/{id}', 'AdvertisementController@get');
     $router->post('advertisement', 'AdvertisementController@add');
