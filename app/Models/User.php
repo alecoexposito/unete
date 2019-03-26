@@ -32,6 +32,8 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
 
     protected $appends = ['token'];
 
+//    protected $with = ["userable"];
+
     public function getTokenAttribute() {
         return $this->token;
     }

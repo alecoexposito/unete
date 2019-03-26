@@ -3,6 +3,11 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Client
+ * @mixin Eloquent
+ * @package App\Models
+ */
 class Client extends Model {
 
     use SoftDeletes;

@@ -18,6 +18,9 @@ class BusinessSeeder extends Seeder {
             factory(\App\Models\Dependence::class, 1)->create(['business_id' => $business->id])->each(function ($dependence) use ($business) {
                 $account = factory(\App\Models\BusinessAccount::class, 1)->create(['dependence_id' => $dependence->id]);
             });
+            factory(\App\Models\ClientType::class, 3)->create(['business_id' => $business->id]);
         });
+
+
     }
 }

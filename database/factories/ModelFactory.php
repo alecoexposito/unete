@@ -76,3 +76,10 @@ $factory->define(App\Models\Advertisement::class, function (Faker\Generator $fak
         'image' => $image
     ];
 });
+
+$factory->define(App\Models\ClientType::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->title,
+        'description' => $faker->sentence,
+    ];
+});

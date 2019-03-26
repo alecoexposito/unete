@@ -49,6 +49,8 @@ $router->group(['middleware' => 'auth:api'], function($router) {
     $router->post('client', 'ClientController@add');
     $router->put('client/{id}', 'ClientController@put');
     $router->delete('client/{id}', 'ClientController@remove');
+    $router->post('client/{id}/register-visit', 'ClientController@registerVisit');
+
 
     $router->get('advertisement/has-changed', 'AdvertisementController@hasChanged');
     $router->get('advertisement', 'AdvertisementController@all');
