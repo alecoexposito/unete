@@ -26,10 +26,6 @@ class CreateTransactionsTable extends Migration
                 ->references('id')
                 ->on('raf_business_accounts')
                 ->onDelete('cascade');
-//            $table->unsignedInteger('visit_id')->nullable();
-//            $table->foreign('visit_id')
-//                ->references('id')
-//                ->on('raf_visits');
 
             $table->string('ticket');
             $table->float('amount');
