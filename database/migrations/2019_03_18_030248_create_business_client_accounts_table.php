@@ -30,6 +30,7 @@ class CreateBusinessClientAccountsTable extends Migration
                 ->references('id')
                 ->on('raf_client_types');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

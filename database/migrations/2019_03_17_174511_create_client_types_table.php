@@ -17,6 +17,7 @@ class CreateClientTypesTable extends Migration
             $table->increments('id');
             $table->string('name', 30);
             $table->string('description');
+            $table->smallInteger('order');
             $table->unsignedInteger('business_id');
             $table->foreign('business_id')
                 ->references('id')

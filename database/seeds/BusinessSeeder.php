@@ -15,12 +15,24 @@ class BusinessSeeder extends Seeder {
         factory(App\Models\Business::class, 20)->create()->each(function ($business) use ($categories) {
             $categoryId = array_random($categories);
             $business->categories()->attach($categoryId);
-            factory(\App\Models\Dependence::class, 1)->create(['business_id' => $business->id])->each(function ($dependence) use ($business) {
+            factory(\App\Models\Dependence::class, 1)->create(['business_id' => $business->id])->each(function ($dependence) {
                 $account = factory(\App\Models\BusinessAccount::class, 1)->create(['dependence_id' => $dependence->id]);
             });
-            factory(\App\Models\ClientType::class, 3)->create(['business_id' => $business->id]);
+            $autoIncrement = $this->autoIncrement();
+            factory(\App\Models\ClientType::class, 3)->make(['business_id' => $business->id])->each(function($clientType) use ($autoIncrement) {
+                $autoIncrement->next();
+                $clientType->order = $autoIncrement->current();
+                $clientType->save();
+            });
         });
 
 
+    }
+
+    private function autoIncrement()
+    {
+        for ($i = 0; $i < 1000; $i++) {
+            yield $i;
+        }
     }
 }

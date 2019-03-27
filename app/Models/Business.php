@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Business extends Model {
 
-    protected $with = ["dependence", "categories"];
+    protected $with = ["dependences", "categories"];
 
     /**
      * The table associated with the model.
@@ -22,8 +22,8 @@ class Business extends Model {
         // Validation rules
     ];
 
-    public function dependence() {
-        return $this->hasOne("App\Models\Dependence");
+    public function dependences() {
+        return $this->hasMany("App\Models\Dependence");
     }
 
     public function categories() {
