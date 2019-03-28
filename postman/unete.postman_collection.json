@@ -23,7 +23,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "dane.schamberger@little.net",
+									"value": "camylle59@yahoo.com",
 									"type": "text"
 								},
 								{
@@ -81,7 +81,7 @@
 								},
 								{
 									"key": "birth_date",
-									"value": "1984-02-24",
+									"value": "",
 									"type": "text"
 								},
 								{
@@ -367,6 +367,34 @@
 							],
 							"path": [
 								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-visit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/client/1/register-visit",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"client",
+								"1",
+								"register-visit"
 							]
 						}
 					},
