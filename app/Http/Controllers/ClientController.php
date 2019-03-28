@@ -4,6 +4,7 @@
 use App\Models\Business;
 use App\Models\BusinessClient;
 use App\Models\Client;
+use App\Models\ClientType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -36,7 +37,11 @@ class ClientController extends Controller {
     }
 
     private function getBusinessClient($clientId, $businessId) {
-        $businessClient = BusinessClient::query()->firstOrCreate(["client_id" => $clientId, "business_id" => $businessId]);
+        $businessClient = BusinessClient::query()->firstOrNew(["client_id" => $clientId, "business_id" => $businessId]);
+        if(!$businessClient->exists) {
+            $clientTypeId = ClientType::query()->where(['business_id' => $businessId, 'order' => 1])->firstOrFail();
+            $businessClient->client_type_id = $clientTypeId;
+        }
         return $businessClient;
     }
 
