@@ -46,7 +46,7 @@ class ClientController extends Controller {
 //
 //        }
 
-        return response()->json($businessClient->id);
+        return response()->json($businessClient);
     }
 
     private function getBusinessClient($clientId, $businessId) {
