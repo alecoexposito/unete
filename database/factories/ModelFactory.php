@@ -62,9 +62,7 @@ $factory->define(App\Models\BusinessAccount::class, function (Faker\Generator $f
 
 $factory->define(App\Models\Dependence::class, function (Faker\Generator $faker) {
     return [
-        'name' => 'Dependence 1',
         'description' => 'Just a description',
-        'main' => true
     ];
 });
 
@@ -81,5 +79,12 @@ $factory->define(App\Models\ClientType::class, function (Faker\Generator $faker)
     return [
         'name' => $faker->title,
         'description' => $faker->sentence,
+    ];
+});
+
+$factory->define(App\Models\ClientTypeDependence::class, function (Faker\Generator $faker) {
+    return [
+        'global_percent' => $faker->numberBetween(0, 100),
+        'local_percent' => $faker->numberBetween(0, 100),
     ];
 });

@@ -6,7 +6,7 @@ class Visit extends Model {
 
     protected $table = 'raf_visits';
 
-    protected $fillable = ["visited_at"];
+    protected $fillable = ["business_client_id", "visited_at", "dependence_id"];
 
     protected $dates = ["visited_at"];
 
