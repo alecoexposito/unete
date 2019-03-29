@@ -5,6 +5,7 @@ use App\Models\Business;
 use App\Models\BusinessClient;
 use App\Models\Client;
 use App\Models\ClientType;
+use App\Models\ClientTypeDependence;
 use App\Models\Dependence;
 use App\Models\Visit;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class ClientController extends Controller {
 
         $this->validate($request, [
             'dependence_id' => 'required',
-            'visited_at' => 'required'
+            'visited_at' => 'required',
         ]);
         $client = Client::query()->findOrFail($id);
         $visitedAt = $request->input("visited_at");
@@ -37,6 +38,13 @@ class ClientController extends Controller {
             'visited_at' => $visitedAt,
             'dependence_id' => $dependenceId
         ]);
+//        $clientTypeId = $businessClient->clientType()->pluck("id")->first();
+//        $clientTypeDependence = ClientTypeDependence::query()->where(['client_type_id' => $clientTypeId, $dependenceId])->first();
+//        $globalPercent = $clientTypeDependence->global_percent;
+//        $localPercent = $clientTypeDependence->local_percent;
+//        if($globalPercent > 0) {
+//
+//        }
 
         return response()->json($businessClient->id);
     }
