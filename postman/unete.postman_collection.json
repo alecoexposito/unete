@@ -380,11 +380,34 @@
 							{
 								"key": "Authorization",
 								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": ""
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "visited_at",
+									"value": "2018-03-29 10:17:00",
+									"type": "text"
+								},
+								{
+									"key": "dependence_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
 						},
 						"url": {
 							"raw": "{{API_URL}}/client/1/register-visit",
