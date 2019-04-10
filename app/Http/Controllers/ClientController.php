@@ -38,13 +38,15 @@ class ClientController extends Controller {
             'visited_at' => $visitedAt,
             'dependence_id' => $dependenceId
         ]);
-//        $clientTypeId = $businessClient->clientType()->pluck("id")->first();
-//        $clientTypeDependence = ClientTypeDependence::query()->where(['client_type_id' => $clientTypeId, $dependenceId])->first();
-//        $globalPercent = $clientTypeDependence->global_percent;
-//        $localPercent = $clientTypeDependence->local_percent;
-//        if($globalPercent > 0) {
-//
-//        }
+        $clientTypeId = $businessClient->clientType()->pluck("id")->first();
+        $clientTypeDependence = ClientTypeDependence::query()->where(['client_type_id' => $clientTypeId, $dependenceId])->first();
+        $globalPercent = $clientTypeDependence->global_percent;
+        $localPercent = $clientTypeDependence->local_percent;
+        if($globalPercent > 0) {
+            $amount = $request->input("amount");
+            $value = ($amount + $globalPercent) / 100;
+
+        }
 
         return response()->json($businessClient);
     }

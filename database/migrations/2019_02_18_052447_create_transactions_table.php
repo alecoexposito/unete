@@ -16,16 +16,12 @@ class CreateTransactionsTable extends Migration
         Schema::create('raf_transactions', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('client_account_id');
-            $table->unsignedInteger('business_account_id');
-            $table->foreign('client_account_id')
+            $table->unsignedInteger('business_client_id');
+            $table->foreign('business_client_id')
                 ->references('id')
                 ->on('raf_client_accounts')
                 ->onDelete('cascade');
-            $table->foreign('business_account_id')
-                ->references('id')
-                ->on('raf_business_accounts')
-                ->onDelete('cascade');
+
 
             $table->string('ticket');
             $table->float('amount');

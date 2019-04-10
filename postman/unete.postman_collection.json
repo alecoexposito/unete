@@ -186,6 +186,85 @@
 			]
 		},
 		{
+			"name": "dependence",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/dependence",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"dependence"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "has-changed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{TOKEN}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "updated_at",
+									"value": "2019-03-08 18:52:17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/dependence/has-changed?updated_at=2019-03-08 18:52:17",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"dependence",
+								"has-changed"
+							],
+							"query": [
+								{
+									"key": "updated_at",
+									"value": "2019-03-08 18:52:17"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "advertisement",
 			"item": [
 				{

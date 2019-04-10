@@ -11,7 +11,7 @@ class Transaction extends Model {
      */
     protected $table = 'raf_transactions';
 
-    protected $fillable = ["client_account_id", "business_account_id"];
+    protected $fillable = ["business_client_id", "amount"];
 
     protected $dates = [];
 

@@ -11,7 +11,7 @@ class Dependence extends Model {
      */
     protected $table = 'raf_dependencies';
 
-    protected $with = ["account"];
+    protected $with = ["business", "account"];
 
     protected $fillable = ["name", "description", "main"];
 

@@ -59,6 +59,12 @@ $router->group(['middleware' => 'auth:api'], function($router) {
     $router->put('advertisement/{id}', 'AdvertisementController@put');
     $router->delete('advertisement/{id}', 'AdvertisementController@remove');
 
+    $router->get('dependence', 'DependenceController@all');
+    $router->get('dependence/{id}', 'DependenceController@get');
+    $router->post('dependence', 'DependenceController@add');
+    $router->put('dependence/{id}', 'DependenceController@put');
+    $router->delete('dependence/{id}', 'DependenceController@remove');
+
 
 });
 
@@ -74,12 +80,6 @@ $router->get('client-account/{id}', 'ClientAccountController@get');
 $router->post('client-account', 'ClientAccountController@add');
 $router->put('client-account/{id}', 'ClientAccountController@put');
 $router->delete('client-account/{id}', 'ClientAccountController@remove');
-
-$router->get('dependence', 'DependenceController@all');
-$router->get('dependence/{id}', 'DependenceController@get');
-$router->post('dependence', 'DependenceController@add');
-$router->put('dependence/{id}', 'DependenceController@put');
-$router->delete('dependence/{id}', 'DependenceController@remove');
 
 $router->get('prod-serv', 'ProdServController@all');
 $router->get('prod-serv/{id}', 'ProdServController@get');

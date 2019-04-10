@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Business extends Model {
 
-    protected $with = ["dependences", "categories"];
+    protected $with = ["categories"];
 
     /**
      * The table associated with the model.
