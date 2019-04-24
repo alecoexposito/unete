@@ -31,6 +31,46 @@ class AuthController extends Controller {
         $this->jwt = $jwt;
     }
 
+    public function loginFb(Request $request) {
+
+        $params = $request->only('name', 'phone', 'email', 'facebookID');
+        if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
+            return $this->registerFb($params);
+        }
+
+        $user = User::where('email', $request->input('email'))->first();
+//        $user->setToken($token);
+        $userType = $user->userable;
+        //       $userType->user->token = $token;
+
+        return response()->json(['client' => $userType, 'token' => $token]);
+
+    }
+
+    private function registerFb($params) {
+        $options = [
+            'cost' => 11
+        ];
+        $pass = password_hash('facebooksecret', PASSWORD_BCRYPT, $options);
+        $client = new Client([
+            'phone' => $params['phone'],
+        ]);
+        $client->save();
+        $client->user()->create([
+            'name' => $params['name'],
+            'lastname' => '',
+            'email' => $params['email'],
+            'userable_id' => $client->id,
+            'userable_type' => Client::class,
+            'password' => $pass
+        ]);
+        $client->save();
+        $token = $this->jwt->attempt(['email' => $params['email'], 'password' => $pass]);
+        //$client->user->token = $token;
+        $client->user = $client->user;
+        return response()->json(['client' => $client, 'token'=>$token]);
+    }
+
     public function login(Request $request) {
 
         $this->validate($request, [

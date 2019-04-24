@@ -22,6 +22,8 @@ $router->get('foo', function () {
 $router->group(['prefix' => 'auth'], function() use ($router) {
     $router->post('login', 'AuthController@login');
     $router->post('register', 'AuthController@register');
+    $router->post('login-fb', 'AuthController@loginFb');
+
 });
 
 

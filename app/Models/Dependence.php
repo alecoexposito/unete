@@ -11,7 +11,7 @@ class Dependence extends Model {
      */
     protected $table = 'raf_dependencies';
 
-    protected $with = ["business", "account"];
+    protected $with = ["business", "account", "client_types"];
 
     protected $fillable = ["name", "description", "main"];
 
@@ -26,7 +26,7 @@ class Dependence extends Model {
         return $this->hasOne("App\Models\BusinessAccount");
     }
 
-    public function prodServs()
+    public function prod_servs()
     {
         return $this->hasMany("App\Models\ProdServ");
     }
@@ -34,6 +34,10 @@ class Dependence extends Model {
     public function business()
     {
         return $this->belongsTo("App\Models\Business");
+    }
+
+    public function client_types() {
+        return $this->hasMany(ClientTypeDependence::class);
     }
 
 
