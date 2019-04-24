@@ -65,7 +65,7 @@ class AuthController extends Controller {
             'password' => $pass
         ]);
         $client->save();
-        $token = $this->jwt->attempt(['email' => $params['email'], 'password' => $pass]);
+        $token = $this->jwt->attempt(['email' => $params['email'], 'password' => 'facebooksecret']);
         //$client->user->token = $token;
         $client->user = $client->user;
         return response()->json(['client' => $client, 'token'=>$token]);
@@ -79,7 +79,6 @@ class AuthController extends Controller {
         ]);
 
         try {
-
             if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
                 return response()->json(['user_not_found'], 404);
             }

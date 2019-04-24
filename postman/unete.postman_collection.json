@@ -61,7 +61,7 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Alejandro3",
+									"value": "Alejandro5",
 									"type": "text"
 								},
 								{
@@ -71,12 +71,12 @@
 								},
 								{
 									"key": "email",
-									"value": "alecoexposito3@gmail.com",
+									"value": "alecoexposito5@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "phone",
-									"value": "59838844",
+									"value": "59838846",
 									"type": "text"
 								},
 								{
@@ -106,11 +106,8 @@
 				},
 				{
 					"name": "Login FB",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -124,28 +121,35 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Alejandro3",
+									"value": "Alejandro20",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "alecoexposito3@gmail.com",
+									"value": "alecoexposito20@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "phone",
-									"value": "59838844",
+									"value": "59838820",
 									"type": "text"
 								},
 								{
 									"key": "facebookID",
-									"value": "alecoexposito@facebook.com",
+									"value": "alecoexposito20@facebook.com",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": ""
+							"raw": "{{API_URL}}/auth/login-fb",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"login-fb"
+							]
 						}
 					},
 					"response": []
