@@ -33,7 +33,7 @@ class AuthController extends Controller {
 
     public function loginFb(Request $request) {
 
-        $params = $request->only('name', 'phone', 'email', 'facebookID');
+        $params = $request->only('name', 'phone', 'email', 'facebookID', 'birthday', 'gender');
         if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
             return $this->registerFb($params);
         }
@@ -54,6 +54,8 @@ class AuthController extends Controller {
         $pass = password_hash('facebooksecret', PASSWORD_BCRYPT, $options);
         $client = new Client([
             'phone' => $params['phone'],
+            'birth_date' => $params['birthday'],
+            'gender' => $params['gender']
         ]);
         $client->save();
         $client->user()->create([

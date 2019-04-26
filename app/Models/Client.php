@@ -19,7 +19,7 @@ class Client extends Model {
      */
     protected $table = 'raf_clients';
 
-    protected $fillable = ["phone", "birth_date"];
+    protected $fillable = ["phone", "birth_date", "gender"];
 
     protected $dates = ["birth_date"];
 
