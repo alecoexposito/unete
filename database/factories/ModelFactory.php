@@ -28,7 +28,7 @@ $factory->define(App\Models\Client::class, function (Faker\Generator $faker) {
     return [
         'phone' => $faker->phoneNumber,
         'birth_date' => $faker->dateTimeBetween(),
-        'gender' => $faker->randomElement(array('male', 'female'));
+        'gender' => $faker->randomElement(array('male', 'female'))
     ];
 });
 
