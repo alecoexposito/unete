@@ -61,8 +61,10 @@ $factory->define(App\Models\BusinessAccount::class, function (Faker\Generator $f
 });
 
 $factory->define(App\Models\Dependence::class, function (Faker\Generator $faker) {
+    $image = $faker->image('public/uploads/business', 640, 480, null, false);
     return [
         'description' => 'Just a description',
+        'image' => $image
     ];
 });
 
