@@ -56,7 +56,7 @@ class AuthController extends Controller {
         $pass = $this->generatePass('facebooksecret');
         $client = new Client([
             'phone' => $params['phone'],
-            'birth_date' => $params['birthday'],
+            'birth_date' => isset($params['birthday']) ? $params['birthday'] : null,
             'gender' => $params['gender']
         ]);
         $client->save();
