@@ -32,9 +32,10 @@ class AuthController extends Controller {
     }
 
     public function loginFb(Request $request) {
-
         $params = $request->only('name', 'phone', 'email', 'facebookID', 'birthday', 'gender');
-        if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
+        $email = $params['email'];
+        $password = 'facebooksecret';
+        if (! $token = $this->jwt->attempt(['email' => $email, 'password' => $password])) {
             return $this->registerFb($params);
         }
 
@@ -48,10 +49,7 @@ class AuthController extends Controller {
     }
 
     private function registerFb($params) {
-        $options = [
-            'cost' => 11
-        ];
-        $pass = password_hash('facebooksecret', PASSWORD_BCRYPT, $options);
+        $pass = $this->generatePass('facebooksecret');
         $client = new Client([
             'phone' => $params['phone'],
             'birth_date' => $params['birthday'],
@@ -115,10 +113,7 @@ class AuthController extends Controller {
         $params = $request->all();
         $birthDate = isset($params['birth_date']) && !empty($params['birth_date']) ? Carbon::createFromFormat('Y-m-d', $params['birth_date']) : null;
 
-        $options = [
-            'cost' => 11
-        ];
-        $pass = password_hash($params['password'], PASSWORD_BCRYPT, $options);
+        $pass = $this->generatePass($params['password']);
         $client = new Client([
             'phone' => $params['phone'],
             'birth_date' => $birthDate,
@@ -138,6 +133,14 @@ class AuthController extends Controller {
         $client->user = $client->user;
         return response()->json(['client' => $client, 'token'=>$token]);
 
+    }
+
+    private function generatePass($password) {
+        $options = [
+            'cost' => 11
+        ];
+        $pass = password_hash($password, PASSWORD_BCRYPT, $options);
+        return $pass;
     }
 
 }
