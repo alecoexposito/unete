@@ -55,7 +55,7 @@ class AuthController extends Controller {
     private function registerFb($params) {
         $pass = $this->generatePass('facebooksecret');
         $client = new Client([
-            'phone' => $params['phone'],
+            'phone' => isset($params['phone']) ? $params['phone'] : '12345667',
             'birth_date' => isset($params['birthday']) ? $params['birthday'] : null,
             'gender' => $params['gender']
         ]);
