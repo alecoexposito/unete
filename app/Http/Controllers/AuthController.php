@@ -14,6 +14,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\Param;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -35,6 +36,9 @@ class AuthController extends Controller {
         $params = $request->only('name', 'phone', 'email', 'facebookID', 'birthday', 'gender');
         $email = $params['email'];
         $password = 'facebooksecret';
+        $output = new ConsoleOutput();
+        $output->writeln("email: " . $email . " password: " . $password);
+        $output->writeln("params: " . serialize($params ));
         if (! $token = $this->jwt->attempt(['email' => $email, 'password' => $password])) {
             return $this->registerFb($params);
         }
